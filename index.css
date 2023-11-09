@@ -182,11 +182,13 @@ header table {
     width:16%;
 }
 #photos {
-    width:100%;
-    columns:5;
-    column-gap:4%;
-    z-index:1;
-    transition:0.4s ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
+}
+.column {
+    flex-basis: 20%; /* Adjust the percentage based on your preference */
+    padding: 10px;
+    box-sizing: border-box;
 }
 #photos img {
     width:100%;
