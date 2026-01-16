@@ -1,0 +1,10 @@
+export { Header } from './Header';
+export { Hero } from './Hero';
+export { WorkExperience } from './WorkExperience';
+export { Skills } from './Skills';
+export { Photography } from './Photography';
+export { VideoSection } from './VideoSection';
+export { Documentation } from './Documentation';
+export { Contact } from './Contact';
+export { Loading } from './Loading';
+export { Lightbox } from './Lightbox';

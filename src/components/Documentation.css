@@ -1,0 +1,129 @@
+.documentation-section {
+  padding: 100px 5%;
+  background: white;
+}
+
+.documentation-section .section-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+.documentation-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 2px;
+}
+
+.documentation-category {
+  margin-bottom: 60px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.documentation-category:last-child {
+  margin-bottom: 0;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  margin-bottom: 28px;
+  position: relative;
+  display: inline-block;
+  padding-left: 16px;
+}
+
+.category-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 2px;
+}
+
+.documentation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.documentation-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  aspect-ratio: 4/5;
+  box-shadow: var(--card-shadow);
+  transition: all 0.4s ease;
+}
+
+.documentation-item:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-5px);
+}
+
+.documentation-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.documentation-item:hover img {
+  transform: scale(1.1);
+}
+
+.documentation-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(99, 102, 241, 0.3));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.documentation-item:hover::after {
+  opacity: 1;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .documentation-section {
+    padding: 60px 5%;
+  }
+
+  .documentation-category {
+    margin-bottom: 40px;
+  }
+
+  .documentation-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .documentation-item {
+    border-radius: 12px;
+  }
+
+  .documentation-item:hover {
+    transform: none;
+  }
+
+  .documentation-item:hover img {
+    transform: none;
+  }
+}

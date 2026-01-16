@@ -1,0 +1,183 @@
+.work-section {
+  padding: 100px 5%;
+  background: var(--background-cream);
+  position: relative;
+}
+
+.work-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.03), transparent);
+  pointer-events: none;
+}
+
+.work-section .section-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+.work-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 2px;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.4s ease;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--card-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.experience-card:hover::before {
+  transform: scaleX(1);
+}
+
+.company-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.experience-meta .location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.experience-meta .location::before {
+  content: '📍';
+  font-size: 0.85rem;
+}
+
+.experience-meta .period {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gradient-start);
+  font-weight: 500;
+}
+
+.experience-meta .period::before {
+  content: '📅';
+  font-size: 0.85rem;
+}
+
+.experience-meta .type {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  color: #fff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: fit-content;
+  margin-top: 6px;
+}
+
+.responsibilities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--card-border);
+  padding-top: 16px;
+}
+
+.responsibilities li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.responsibilities li:last-child {
+  margin-bottom: 0;
+}
+
+.responsibilities li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 50%;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .work-section {
+    padding: 60px 5%;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .experience-card {
+    padding: 24px;
+  }
+
+  .company-name {
+    font-size: 1.15rem;
+  }
+}

@@ -1,0 +1,121 @@
+.video-section {
+  padding: 60px 5%;
+}
+
+.video-section:first-of-type {
+  padding-top: 100px;
+}
+
+.video-section .section-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+.video-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 2px;
+}
+
+.video-section .subsection-title {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+  padding-left: 16px;
+}
+
+.video-section .subsection-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 2px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.video-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  transition: all 0.4s ease;
+}
+
+.video-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid transparent;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.video-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.video-item:hover::before {
+  opacity: 1;
+}
+
+.video-item iframe,
+.video-item video {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .video-section {
+    padding: 40px 5%;
+  }
+
+  .video-section:first-of-type {
+    padding-top: 60px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .video-item {
+    border-radius: 16px;
+  }
+
+  .video-item:hover {
+    transform: none;
+  }
+}
